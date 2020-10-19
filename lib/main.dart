@@ -66,7 +66,7 @@ class _LoginPageState extends State<LoginPage> {
             minWidth: 100,
             maxWidth: 200,
             minHeight: 100,
-            maxHeight: 200,
+            maxHeight: 400,
           ),
           alignment: Alignment.center,
           child: Form(
