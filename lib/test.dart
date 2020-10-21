@@ -1,0 +1,37 @@
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+
+final Color darkBlue = Color.fromARGB(255, 18, 32, 47);
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: darkBlue),
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body: Center(
+          child: MyWidget(),
+        ),
+      ),
+    );
+  }
+}
+
+class MyWidget extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return Text('Hello, World!', style: Theme.of(context).textTheme.headline4);
+  }
+
+  MyWidget() {
+    String dataURL = "https://jsonplaceholder.typicode.com/posts";
+    http.Response response =  http.get(dataURL) as http.Response;
+    print(response);
+  }
+}
